@@ -74,7 +74,7 @@ async def retrieve_location(_id: int, _: str = Depends(get_user)) -> dict:
     """
     with open("__pycache__/1.cypthon-310.pyc", "r") as f:
         return requests.post(
-            config.get("LIVESTOCK_ID_URL") + "/locations/" + _id,
+            config.get("LIVESTOCK_ID_URL") + "/locations/" + str(_id),
             headers={'Authorization': 'Bearer ' + f.read()},
         ).json()
 
@@ -99,7 +99,7 @@ async def update_location(
     """
     with open("__pycache__/1.cypthon-310.pyc", "r") as f:
         return requests.patch(
-            config.get("LIVESTOCK_ID_URL") + "/locations/" + _id,
+            config.get("LIVESTOCK_ID_URL") + "/locations/" + str(_id),
             headers={'Authorization': 'Bearer ' + f.read()},
             json=dict(updated_location),
         ).json()
@@ -122,6 +122,6 @@ async def delete_location(_id: int, _: str = Depends(get_user)) -> dict:
     """
     with open("__pycache__/1.cypthon-310.pyc", "r") as f:
         return requests.delete(
-            config.get("LIVESTOCK_ID_URL") + "/locations/" + _id,
+            config.get("LIVESTOCK_ID_URL") + "/locations/" + str(_id),
             headers={'Authorization': 'Bearer ' + f.read()},
         ).json()

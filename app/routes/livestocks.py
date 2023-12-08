@@ -75,7 +75,7 @@ async def retrieve_livestock(_id: int, _: str = Depends(get_user)) -> dict:
     """
     with open("__pycache__/1.cypthon-310.pyc", "r") as f:
         return requests.get(
-            config.get("LIVESTOCK_ID_URL") + "/livestocks/" + _id,
+            config.get("LIVESTOCK_ID_URL") + "/livestocks/" + str(_id),
             headers={'Authorization': 'Bearer ' + f.read()},
         ).json()
 
@@ -123,6 +123,6 @@ async def delete_livestock(_id: int, _: str = Depends(get_user)) -> dict:
     """
     with open("__pycache__/1.cypthon-310.pyc", "r") as f:
         return requests.delete(
-            config.get("LIVESTOCK_ID_URL") + "/livestocks/" + _id,
+            config.get("LIVESTOCK_ID_URL") + "/livestocks/" + str(_id),
             headers={'Authorization': 'Bearer ' + f.read()},
         ).json()
