@@ -7,8 +7,6 @@ from typing import List
 import requests
 from fastapi import APIRouter, Body, Depends
 
-import app.databases.location as db_lo
-import app.databases.livestock as db_li
 from app.schemas.livestock import Livestock
 from app.auth.jwt import get_user
 from app.config import config

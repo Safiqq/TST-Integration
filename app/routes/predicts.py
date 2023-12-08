@@ -5,7 +5,6 @@ on past data.
 import requests
 from fastapi import APIRouter, Depends
 
-import app.databases.livestock as db
 from app.auth.jwt import get_user
 from app.config import config
 

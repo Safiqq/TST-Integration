@@ -3,8 +3,6 @@ This module defines Pydantic models for managing location records in the applica
 """
 from pydantic import BaseModel
 
-from app.models.model import LocationDB
-
 
 class Location(BaseModel):
     """
@@ -19,11 +17,3 @@ class Location(BaseModel):
     name: str
     address: str
 
-    def to_db(self):
-        """
-        Converts the Location object to a LocationDB object suitable for database storage.
-
-        Returns:
-            A LocationDB object containing the information from the Location object.
-        """
-        return LocationDB(**self.model_dump())

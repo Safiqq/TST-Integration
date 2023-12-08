@@ -8,6 +8,7 @@ import uvicorn
 from app.routes.users import user_router
 from app.routes.locations import location_router
 from app.routes.livestocks import livestock_router
+from app.routes.livestock_products import livestock_product_router
 from app.routes.predicts import predict_router
 
 app = FastAPI()
@@ -51,6 +52,7 @@ app.include_router(user_router)
 app.include_router(location_router, prefix="/locations")
 app.include_router(livestock_router, prefix="/livestocks")
 app.include_router(predict_router, prefix="/predicts")
+app.include_router(livestock_product_router, prefix="/lsproducts")
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=80, reload=True)

@@ -3,7 +3,6 @@ This module defines Pydantic models for managing livestock records in the applic
 """
 from datetime import date
 from pydantic import BaseModel
-from app.models.model import LivestockDB
 
 
 class Livestock(BaseModel):
@@ -26,12 +25,3 @@ class Livestock(BaseModel):
     birthdate: date
     gender: str
     location_id: int
-
-    def to_db(self):
-        """
-        Converts the Livestock object to a LivestockDB object suitable for database storage.
-
-        Returns:
-            A LivestockDB object containing the information from the Livestock object.
-        """
-        return LivestockDB(**self.model_dump())

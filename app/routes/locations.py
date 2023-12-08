@@ -2,13 +2,11 @@
 This API provides functionalities to manage location records, including creating, retrieving,
 updating, and deleting records.
 """
-import json
 from typing import List
 
 import requests
 from fastapi import APIRouter, Body, Depends
 
-import app.databases.location as db
 from app.schemas.location import Location
 from app.auth.jwt import get_user
 from app.config import config
